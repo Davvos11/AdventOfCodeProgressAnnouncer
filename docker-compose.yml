@@ -1,0 +1,9 @@
+services:
+  aoc-progress-announcer:
+    container_name: aoc-progress-announcer
+    image: aoc-progress-announcer:latest
+    volumes:
+      - ./aoc-env:/app/.env
+      - ./aoc-data:/app/data
+    restart: on-failure
+    profiles: ["aoc"] # (does not run with other services)
