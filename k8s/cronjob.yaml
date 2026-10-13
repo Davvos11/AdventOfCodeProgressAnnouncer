@@ -1,0 +1,39 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: aoc-progress-announcer
+spec:
+  # AoC asks for at most one leaderboard request per 15 minutes.
+  schedule: "*/15 * * * *"
+  timeZone: Europe/Amsterdam
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      backoffLimit: 0
+      activeDeadlineSeconds: 600
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+            - name: app
+              image: app # replaced by kustomize
+              envFrom:
+                - secretRef:
+                    name: aoc-progress-announcer-env
+              volumeMounts:
+                - name: data
+                  mountPath: /app/data
+              resources:
+                requests:
+                  cpu: 10m
+                  memory: 32Mi
+                limits:
+                  memory: 128Mi
+              securityContext:
+                allowPrivilegeEscalation: false
+          volumes:
+            - name: data
+              persistentVolumeClaim:
+                claimName: data
