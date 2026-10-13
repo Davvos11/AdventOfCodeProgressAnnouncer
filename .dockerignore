@@ -2,3 +2,10 @@ Dockerfile
 .gitignore
 .env
 .env.example
+.git/
+.github/
+.idea/
+k8s/
+vendor/
+data/
+docker-compose.yml
