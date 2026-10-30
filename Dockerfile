@@ -1,4 +1,4 @@
-FROM php:8.2-cli
+FROM php:8.2.35-cli
 
 # Install system dependencies and SQLite PDO extension
 RUN apt-get update && apt-get install -y \
