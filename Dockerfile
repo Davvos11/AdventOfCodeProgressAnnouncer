@@ -1,4 +1,4 @@
-FROM php:8.5.11-cli@sha256:8e5d746f87655d89573e76d2b9125ed1b1578e47d3c466a2b2fdfc35593d9b41
+FROM php:8.5.12-cli@sha256:9236fd373d3bcda0659cf94838a744bd79791419292958963f8c6b34a0071554
 
 # Install system dependencies and SQLite PDO extension
 RUN apt-get update && apt-get install -y \
