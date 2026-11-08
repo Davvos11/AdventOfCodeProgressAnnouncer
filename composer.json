@@ -3,7 +3,7 @@
     "description": "Announces AoC progress in private leaderboards.",
     "type": "project",
     "require": {
-        "guzzlehttp/guzzle": "^7.2",
+        "guzzlehttp/guzzle": "^8.0",
         "vlucas/phpdotenv": "^5.2",
         "catfan/medoo": "^1.7",
         "ext-json": "*"
