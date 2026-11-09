@@ -12,8 +12,8 @@ class Database
     {
         $this->database = new Medoo(
             [
-                'database_type' => 'sqlite',
-                'database_file' => __DIR__ . '/../data/database.sqlite'
+                'type' => 'sqlite',
+                'database' => __DIR__ . '/../data/database.sqlite'
             ]
         );
 
